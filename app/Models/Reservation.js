@@ -1,7 +1,8 @@
 import { generateId } from "../Utils/generateId.js";
+import { ProxyState } from "../AppState.js";
 
 export class Reservation {
-  constructor({resID = generateId(), resType, resName, confNumb, resDate, note = '', cost, destinationID}){
+  constructor({id = generateId(), resType, resName, confNumb, resDate, note = '', cost, destinationID}){
     this.resType = resType,
     this.resName = resName,
     this.confNumb = confNumb,
@@ -9,15 +10,18 @@ export class Reservation {
     this.cost = cost,
     this.destinationID = destinationID || ''
   }
-  get ReservationTemplate() {
-    return /*html*/`
+  get Template() {
+    return /*html*/ `
     <tr>
-      <td>${this.resType}</td>
-      <td>${this.resName}</td>
-      <td>${this.confNumb}</td>
-      <td>${this.resDate}</td>
-      <td>note</td>
-      <td>$${this.cost}</td>
-    </tr>`
+
+      <td >${this.resType}</td>
+      <td >${this.resName}</td>
+      <td >${this.confNumb}</td>
+      <td >${this.resDate}</td>
+      <td >note</td>
+      <td >$${this.cost}</td>
+      
+    </tr>
+    `
   }
 }

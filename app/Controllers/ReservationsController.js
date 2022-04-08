@@ -2,11 +2,11 @@ import { ProxyState } from "../AppState.js"
 
 
 function _drawReservations(destID){
-  let resTemplate = ''
-  if(ProxyState.reservations.find(res => destID == res.destinationID)){
-    ProxyState.reservations.forEach( res => resTemplate += res.ReservationTemplate)
-  }
-  document.getElementById("res-rows").innerHTML = resTemplate
+ const reservations = ProxyState.reservations
+  let template = ''
+  reservations.forEach(r => template += r.Template)
+  
+  document.getElementById("res-rows").innerHTML = template
 }
 
 export class ReservationsController {

@@ -1,3 +1,4 @@
+import { ProxyState } from "../AppState.js";
 import { generateId } from "../Utils/generateId.js";
 
 export class Destination {
@@ -6,11 +7,12 @@ export class Destination {
     this. placeName = placeName
   }
 
-  get DestinationTemplate(){
+  get Template(){
     return /*html*/ `
-    <li class="nav-item">
-      <a class="nav-link bg-secondary text-light active" onclick="app.destinationsController.drawDestinations('${this.id}')" id="${this.id}" aria-current="page" href="#">${this.placeName}</a>
-    </li>
+    <li class="nav-item" role="presentation">
+    <button class="nav-link active" id="${this.id}" data-bs-toggle="tab" data-bs-target="#home" type="button"
+    role="tab" aria-controls="home" aria-selected="true" onclick="app.reservationsController.drawReservations('${this.id}')">${this.placeName}</button>
+ </li>
     `
   }
 }

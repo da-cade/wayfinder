@@ -20,8 +20,11 @@ let spaghetti = new Destination({placeName: "World's Biggest Ball of Spaghetti C
 let tokyoRes = new Reservation({resType: 'icon', resName: 'JR PASS', confNumb: 'ZRH2748J', resDate: '5/13/23', cost: 350, destinationID: tokyo.id})
 
 class AppState extends EventEmitter {
+  /**@type {import('./Models/Destination').Destination[] } */
   
   destinations = [tokyo,instancebul,spaghetti]
+  /**@type {import ('./Models/Reservation').Reservation[]} */
+
   reservations = [tokyoRes]
 }
 
